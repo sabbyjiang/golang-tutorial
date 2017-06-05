@@ -127,4 +127,39 @@
       \end{itemize}
   \end{itemize}
 
+\section{More Data Types}
+  \begin{itemize}
+    \item Pointers
+      \begin{itemize}
+        \item A type \texttt{*T} is a pointer to the value of \texttt{T}
+        \item It's zero value is \texttt{nil}
+        \item The \texttt{\&} operator generates a pointer to its operand
+          \begin{verbatim}
+            i := 42
+            p = &i
+          \end{verbatim}
+      \end{itemize}
+    \item Struct
+      \begin{itemize}
+        \item Collection of fields
+        \item Constructed via the following
+          \begin{verbatim}
+          type [name] struct {
+            [varName] [varType]
+            [varName] [varType]
+          }
+          \end{verbatim}
+        \item You can create a pointer to structs but do not need to dereference them in order to change values
+      \end{itemize}
+    \item Arrays
+      \begin{itemize}
+        \item Array declaration syntax
+          \begin{verbatim}
+          var a [10]int
+          \end{verbatim}
+        \item An array's length is part of it's type so you cannot change that
+        \item
+      \end{itemize}
+  \end{itemize}
+
 \end{document}
