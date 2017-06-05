@@ -1,0 +1,87 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ...
+%\geometry{landscape}                		% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex
+\usepackage{amssymb} %Gives us check marks
+\usepackage{amsmath} % For using text in equations
+\usepackage{array}
+\usepackage{textcomp} %gives proper ASCII uprigth single quotation marks and tilde
+\usepackage[T1]{fontenc} % For proper braces in \texttt env
+\usepackage[pdftex]{hyperref} %clickable links for table of contents
+\hypersetup{
+	colorlinks,
+	linkcolor=black
+} %sets up links to be black
+\usepackage[normalem]{ulem} %For strike out /sout, use normalem to fix for \emph{} behaviour (changes to underline otherwise)
+
+\newcolumntype{C}{>{\texttt\bgroup}c<{\egroup}}
+\newcolumntype{L}[1]{#1\textwidth>{\texttt\bgroup}l{\egroup}}
+\setlength{\parindent}{0pt}
+
+\title{Golang Notes}
+\author{Sabrina Jiang}
+%\date{}							% Activate to display a given date or no date
+%Keyboard shortcuts useful for this
+	%C-l,c for changing [thing] to \[thing]
+	%C-l,C-e for \emph{} [Can be used with selecting text first]
+	%C-l,C-b for \textbf{}
+	%C-l,C-u for \underline
+	%C-l,C-t for \texttt{}
+	%C-l,e for begining an environment
+	%Tab escapes the environment
+	%To go to a section C-r
+	%To fold all code: Cmd+K, Cmd+1
+	%To unfold current: Cmd+Opt+]
+	%To unfold all: Cmd+K, Cmd+J
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Basics}
+  \begin{itemize}
+    \item Packages
+      \begin{itemize}
+        \item Programs start running in package \texttt{main}
+        \item Can also import packages using the below syntax
+          \begin{verbatim}
+            import (
+                "fmt"
+                "math/rand"
+            )
+          \end{verbatim}
+        \item Exported names are \textbf{capitalized} (e.g. \texttt{Pi} is exported from the package \texttt{math})
+      \end{itemize}
+    \item Functions
+      \begin{itemize}
+        \item Basic Function Syntax
+          \begin{verbatim}
+            func [functionName]([varOneName], [varTwoName] [varOneAndTwoType], [etc]) ([returnVarOne, returnVarTwo returnType, etc]) {
+                return [thing here]
+            }
+          \end{verbatim}
+          \begin{itemize}
+            \item A return statement without arguments will return all named variables
+          \end{itemize}
+      \end{itemize}
+    \item Variable Declaration
+      \begin{itemize}
+        \item Variables can be declared without a type (e.g. \texttt{var c})
+        \item Variables that are initialised must have a type (e.g. \texttt{var i int = 2})
+        \item Variables can also be declared with the \texttt{:=} shorthand (e.g. \texttt{k := 3})
+          \begin{itemize}
+            \item Variables declared this way have their type inferred
+            \item e.g. \texttt{42} is an \texttt{int} while \texttt{3.142} is a \texttt{float64}
+          \end{itemize}
+        \item Constants cannot be declared with \texttt{:=}
+        \item Variables declared with types but no values are initialized with zero values (\texttt{0} for numeric, \texttt{false} for boolean, \texttt{""} for strings)
+        \item You can convert between types by using the type as a function (e.g. from \texttt{int} to \texttt{float64}, use \texttt{float64(i)})
+      \end{itemize}
+  \end{itemize}
+
+\end{document}
