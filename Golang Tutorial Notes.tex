@@ -84,4 +84,47 @@
       \end{itemize}
   \end{itemize}
 
+\section{Flow Control}
+  \begin{itemize}
+    \item For Loop Syntax
+      \begin{verbatim}
+      for [initializer] ; [condition] ; [post statement] {
+          [code here]
+      }
+      \end{verbatim}
+      \begin{itemize}
+        \item Note the lack of parentheses around the components of the for loop
+        \item The init and post statements are optional (basically making this into a while loop)
+        \item A for loop without a post statement is an infinite loop
+      \end{itemize}
+    \item If Syntax
+      \begin{verbatim}
+      if [statement] {
+          [code]
+      } else {
+          [more code]
+      }
+      \end{verbatim}
+    \item Switch Statement Syntax
+      \begin{verbatim}
+      switch [to be checked against] {
+          case [case1]:
+              [code execution]
+          case [case2]:
+              [code execution]
+          default:
+              [code default]
+      }
+      \end{verbatim}
+      \begin{itemize}
+        \item Once the code hits a case that succeeds it automatically breaks
+        \item A switch statement without a init is defaulted to be checked against \texttt{true}
+      \end{itemize}
+    \item Defer
+      \begin{itemize}
+        \item Arguments are evaluated immediately but the function is not called until after
+        \item Deferred functions are pushed onto a stack and executed in a \textbf{last-in-first-out}
+      \end{itemize}
+  \end{itemize}
+
 \end{document}
