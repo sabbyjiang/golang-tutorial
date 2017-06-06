@@ -158,7 +158,38 @@
           var a [10]int
           \end{verbatim}
         \item An array's length is part of it's type so you cannot change that
-        \item
+        \item To "change" array lengths, you need to use the \textbf{Slices}$^{\ref{Slices}}$ data type
+      \end{itemize}
+    \item Slices \label{Slices}
+      \begin{itemize}
+        \item Declared as \texttt{[]T}, e.g.
+        \begin{verbatim}
+          primes := [6]int{2, 3, 5, 7, 11, 13} // an array
+          var s []int = primes[1:4] //a slice
+        \end{verbatim}
+        \item Slices are just a view into an array
+        \item Changes to a slice will also change the underlying array
+        \item You can create a slice without explicitly creating the referenced array
+        \begin{verbatim}
+          []bool{true, true, false}
+        \end{verbatim}
+          \begin{itemize}
+            \item This creates an array with those values and then a slice that references said array
+          \end{itemize}
+        \item Slices can be created without explicitly stating the upper and lower bounds. The defaults are \texttt{0} and the highest bound of the referenced array
+        \item Slices have both a \textbf{length} and \textbf{capacity}
+          \begin{description}
+            \item[length] is the number of elements the slice contains (obtained through \texttt{len(s)})
+            \item[capacity] is the number of elements of the \emph{underlying} array (obtained through \texttt{cap(s)})
+          \end{description}
+        \item Nil slice
+          \begin{itemize}
+            \item A nil slice has length of 0, capacity of 0, and no underlying array
+          \end{itemize}
+        \item Creating a slice with \texttt{make}
+          \begin{verbatim}
+          [varName] := make([][varType], [varLength], [opt: varCap])
+          \end{verbatim}
       \end{itemize}
   \end{itemize}
 
