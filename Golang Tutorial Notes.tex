@@ -194,7 +194,7 @@
           \begin{verbatim}
             append([slice], [valueOne], [valueTwo], ...)
           \end{verbatim}
-        \item Iterating over a slice or map
+        \item Iterating over a slice or map$^{\ref{Maps}}$
           \begin{verbatim}
             for [index], [copy of element] := range [slice/map] {
                 [code here]
@@ -206,6 +206,30 @@
             for _, value := range ...
             \end{verbatim}
           \end{itemize}
+      \end{itemize}
+    \item Maps \label{Maps}
+      \begin{itemize}
+        \item Maps keys to values
+        \item Zero Value: A \texttt{nil} map has no keys nor can keys be added
+        \item To create one
+        \begin{verbatim}
+          [varName] = make(map[[keyType][valueType]])
+        \end{verbatim}
+        \begin{itemize}
+          \item For Instance: \texttt{m = make(map[string] uint8)}
+          \item Or you can make one using Map Literals (\texttt{map[[keyDataType]] [valueType]})
+        \end{itemize}
+        \item Mutating Maps (an \texttt{elem} in map \texttt{m})
+          \begin{description}
+            \item[Inserting/Updating] \texttt{m[key] = elem}
+            \item[Retrieving] \texttt{elem = m[key]}
+            \item[Deleting] \texttt{delete(m, key)}
+            \item[Testing that a key is present] \texttt{elem, ok = m[key]}
+              \begin{itemize}
+                 \item If \texttt{ok} is \texttt{true} then the key is present, if it is \texttt{false} then the key is not
+                 \item If \texttt{elem} and \texttt{ok} were not declared yet, you should do \texttt{elem, ok := m[key]}
+               \end{itemize}
+          \end{description}
       \end{itemize}
   \end{itemize}
 
