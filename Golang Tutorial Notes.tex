@@ -190,6 +190,22 @@
           \begin{verbatim}
           [varName] := make([][varType], [varLength], [opt: varCap])
           \end{verbatim}
+        \item Appending to a slice
+          \begin{verbatim}
+            append([slice], [valueOne], [valueTwo], ...)
+          \end{verbatim}
+        \item Iterating over a slice or map
+          \begin{verbatim}
+            for [index], [copy of element] := range [slice/map] {
+                [code here]
+            }
+          \end{verbatim}
+          \begin{itemize}
+            \item If you wanted to drop the index, then you can assign it to a \texttt{\_}
+            \begin{verbatim}
+            for _, value := range ...
+            \end{verbatim}
+          \end{itemize}
       \end{itemize}
   \end{itemize}
 
