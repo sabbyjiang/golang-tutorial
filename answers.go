@@ -38,3 +38,15 @@ func WordCount(s string) map[string]int {
 	}
 	return counts
 }
+
+// Exercise: Fibonacci closure
+
+// a function that returns an int.
+func fibonacci() func() int {
+	x := 0
+	y := 1
+	return func() int {
+		x,y = y, x+y
+		return x
+	}
+}
