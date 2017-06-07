@@ -50,3 +50,11 @@ func fibonacci() func() int {
 		return x
 	}
 }
+
+//Exercise: Stringers
+// Make the IPAddr type implement fmt.Stringer to print the address as a dotted quad.
+
+// For instance, IPAddr{1, 2, 3, 4} should print as "1.2.3.4".
+func (p IPAddr) Stringer() string {
+	return fmt.Sprintf("%v.%v.%v.%v", p[0], p[1], p[2], p[3])
+}
