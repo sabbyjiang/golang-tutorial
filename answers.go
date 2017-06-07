@@ -58,3 +58,22 @@ func fibonacci() func() int {
 func (p IPAddr) Stringer() string {
 	return fmt.Sprintf("%v.%v.%v.%v", p[0], p[1], p[2], p[3])
 }
+
+// Exercise: Errors
+
+type ErrNegativeSqrt float64
+
+func (e ErrNegativeSqrt) Error() string {
+	return fmt.Sprintf("cannot Sqrt negativ number: %g", float64(e))
+}
+
+func Sqrt(x float64) (float64, error) {
+	if x < 0 {
+		return x, ErrNegativeSqrt(x)
+	}
+	z := 1.0
+	for i:= 0; i < 20; i++ {
+		z = z - (z*z - x)/(2 * z)
+	}
+	return z, nil
+}
